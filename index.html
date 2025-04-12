@@ -107,7 +107,7 @@
         <div class="category">
             <a href="#ai">AI类</a>
             <div class="submenu">
-                <a href="scratch/scratch聊天1.0.html">Scratch聊天1.0</a>
+                <a href="scratch/scratch聊天1.0.html" target="_blank">Scratch聊天1.0</a>
             </div>
         </div>
         <div class="category">
@@ -121,7 +121,7 @@
         </header>
         <div class="nav-grid">
             <div class="nav-card" data-category="ai">
-                <a href="scratch/scratch聊天1.0.html">Scratch聊天1.0</a>
+                <a href="scratch/scratch聊天1.0.html" target="_blank">Scratch聊天1.0</a>
                 <p>一个简单的聊天界面</p>
             </div>
         </div>
@@ -131,10 +131,7 @@
             const aiCategory = document.querySelector('.category a[href="#ai"]');
             const aiSubmenu = document.querySelector('.category .submenu');
             
-            aiCategory.addEventListener('click', function(e) {
-                e.preventDefault();
-                aiSubmenu.style.display = aiSubmenu.style.display === 'block' ? 'none' : 'block';
-            });
+            // 移除点击事件监听，使用CSS hover效果代替
         });
     </script>
 </body>
