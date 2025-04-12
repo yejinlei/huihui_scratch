@@ -56,12 +56,23 @@
             margin-bottom: 1rem;
         }
         .category a {
-            display: block;
-            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0.8rem 1rem;
+            margin: 0.2rem 0;
             color: #3498db;
             font-family: 'Press Start 2P', 'Comic Sans MS', cursive, sans-serif;
             text-decoration: none;
             border-radius: 4px;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .category a::before {
+            content: '> ';
+            margin-right: 0.5rem;
+            color: #ff9966;
         }
         .category a:hover {
             background: #f0f7ff;
