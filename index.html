@@ -131,7 +131,10 @@
             const aiCategory = document.querySelector('.category a[href="#ai"]');
             const aiSubmenu = document.querySelector('.category .submenu');
             
-            // 移除点击事件监听，使用CSS hover效果代替
+            aiCategory.addEventListener('click', function(e) {
+                e.preventDefault();
+                aiSubmenu.style.display = aiSubmenu.style.display === 'block' ? 'none' : 'block';
+            });
         });
     </script>
 </body>
