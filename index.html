@@ -15,7 +15,23 @@
                 linear-gradient(135deg, rgba(255,204,230,0.9) 0%, rgba(153,204,255,0.9) 100%),
                 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><text x='0' y='10' font-family='monospace' font-size='10' fill='rgba(0,0,0,0.05)'>01010101 01101000 01101111 01101101 01100101</text></svg>");
             min-height: 100vh;
-            animation: binaryScroll 20s linear infinite;
+            animation: binaryScroll 20s linear infinite, pixelGlow 2s ease-in-out infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><rect width='20' height='20' fill='none' stroke='rgba(0,255,255,0.1)' stroke-width='1'/></svg>") repeat;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.5;
         }
         .sidebar {
             position: fixed;
@@ -88,12 +104,13 @@
             background: rgba(255,255,255,0.8);
             border-radius: 8px;
             padding: 1.5rem;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 4px 12px rgba(255, 153, 102, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5), 0 4px 12px rgba(255, 153, 102, 0.3), 0 0 30px rgba(255, 0, 255, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
             border: 2px solid #ff3366;
             position: relative;
             overflow: hidden;
+            animation: pixelGlow 3s ease-in-out infinite alternate;
         }
         .nav-card::before {
             content: '';
@@ -133,6 +150,16 @@
         @keyframes binaryScroll {
             from { background-position: 0 0; }
             to { background-position: 100px 100px; }
+        }
+        
+        @keyframes pixelGlow {
+            0% { box-shadow: 0 0 5px 0 rgba(0, 255, 255, 0.5); }
+            100% { box-shadow: 0 0 20px 10px rgba(255, 0, 255, 0.7); }
+        }
+        
+        @keyframes neonPulse {
+            0%, 100% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; }
+            50% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff; }
         }
         
         @media (max-width: 768px) {
@@ -188,7 +215,7 @@
     </div>
     <div class="container">
         <header>
-            <h1 style="color: #ff3366; text-shadow: 0 0 10px #00ffff, 2px 2px 4px rgba(0,0,0,0.1);">辉辉的<span style="color: #00ffff">代码</span>世界</h1>
+            <h1 style="color: #ff3366; text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; animation: neonPulse 1.5s ease-in-out infinite alternate;">辉辉的<span style="color: #00ffff">代码</span>世界</h1>
             <p>选择您要访问的项目</p>
         </header>
         <div class="nav-grid">
