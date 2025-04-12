@@ -17,6 +17,46 @@
             overflow: hidden;
         }
         
+        .bubble {
+            position: absolute;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+            animation: float 15s linear infinite;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
         body::after {
             content: '';
             position: absolute;
@@ -257,6 +297,35 @@
                 e.preventDefault();
                 aiSubmenu.style.display = aiSubmenu.style.display === 'block' ? 'none' : 'block';
             });
+            
+            // 创建气泡和星星
+            function createBubbles() {
+                for (let i = 0; i < 15; i++) {
+                    const bubble = document.createElement('div');
+                    bubble.className = 'bubble';
+                    bubble.style.left = Math.random() * 100 + 'vw';
+                    bubble.style.width = Math.random() * 30 + 10 + 'px';
+                    bubble.style.height = bubble.style.width;
+                    bubble.style.animationDuration = Math.random() * 20 + 10 + 's';
+                    bubble.style.animationDelay = Math.random() * 5 + 's';
+                    document.body.appendChild(bubble);
+                }
+            }
+            
+            function createStars() {
+                for (let i = 0; i < 50; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = Math.random() * 100 + 'vw';
+                    star.style.top = Math.random() * 100 + 'vh';
+                    star.style.animationDuration = Math.random() * 3 + 1 + 's';
+                    star.style.animationDelay = Math.random() * 2 + 's';
+                    document.body.appendChild(star);
+                }
+            }
+            
+            createBubbles();
+            createStars();
         });
     </script>
 </body>
