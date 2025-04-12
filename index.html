@@ -43,6 +43,20 @@
         .category a:hover {
             background: #f0f7ff;
         }
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 200px;
+            top: 0;
+            width: 200px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            z-index: 100;
+        }
+        .category:hover .submenu {
+            display: block;
+        }
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -92,6 +106,9 @@
         <h2>分类导航</h2>
         <div class="category">
             <a href="#ai">AI类</a>
+            <div class="submenu">
+                <a href="scratch/scratch聊天1.0.html">Scratch聊天1.0</a>
+            </div>
         </div>
         <div class="category">
             <a href="#games">游戏类</a>
@@ -109,5 +126,16 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const aiCategory = document.querySelector('.category a[href="#ai"]');
+            const aiSubmenu = document.querySelector('.category .submenu');
+            
+            aiCategory.addEventListener('click', function(e) {
+                e.preventDefault();
+                aiSubmenu.style.display = aiSubmenu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
 </body>
 </html>
