@@ -9,9 +9,39 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 0;
+            padding: 0 0 0 200px;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+        .sidebar h2 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .category {
+            margin-bottom: 1rem;
+        }
+        .category a {
+            display: block;
+            padding: 0.5rem;
+            color: #3498db;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .category a:hover {
+            background: #f0f7ff;
         }
         .container {
             max-width: 800px;
@@ -58,13 +88,22 @@
     </style>
 </head>
 <body>
+    <div class="sidebar">
+        <h2>分类导航</h2>
+        <div class="category">
+            <a href="#ai">AI大模型</a>
+        </div>
+        <div class="category">
+            <a href="#games">游戏类</a>
+        </div>
+    </div>
     <div class="container">
         <header>
-            <h1>项目导航</h1>
+            <h1>辉辉的作品</h1>
             <p>选择您要访问的项目</p>
         </header>
         <div class="nav-grid">
-            <div class="nav-card">
+            <div class="nav-card" data-category="ai">
                 <a href="scratch/scratch聊天1.0.html">Scratch聊天1.0</a>
                 <p>一个简单的聊天界面</p>
             </div>
